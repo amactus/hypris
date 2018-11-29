@@ -19,18 +19,14 @@ function changeSelect() {
     } else if (document.getElementById("round-selection").value == "4") {
         document.getElementById("round").innerHTML = "Finals";
     }
-}
-</script>
 
-<script> /* SELECT STREAM */
-function changeSelect() {
-    if (document.getElementById("stream-selection").value == "1") {
+    if (document.getElementById("stream-selection").value == "11") {
         document.getElementById("stream").innerHTML = "amactus";
-    } else if (document.getElementById("stream-selection").value == "2") {
+    } else if (document.getElementById("stream-selection").value == "12") {
         document.getElementById("stream").innerHTML = "ShinyDialga";
-    } else if (document.getElementById("stream-selection").value == "3") {
+    } else if (document.getElementById("stream-selection").value == "13") {
         document.getElementById("stream").innerHTML = "ItzaMeLuigi";
-    } else if (document.getElementById("stream-selection").value == "4") {
+    } else if (document.getElementById("stream-selection").value == "14") {
         document.getElementById("stream").innerHTML = "Strangey";
     }
 }
@@ -68,11 +64,11 @@ function changeSelect() {
     <div class="row">
         <div class="col-sm-3">         <!-- Select Livestreamer -->
             <select type="text" id="stream-selection" onchange="changeSelect()"> 
-                <option value="0">Select Streamer</option>
-                <option value="1">amactus</option>
-                <option value="2">ShinyDialga</option>
-                <option value="3">ItzaMeLuigi</option>
-                <option value="4">Strangey</option>
+                <option value="10">Select Streamer</option>
+                <option value="11">amactus</option>
+                <option value="12">ShinyDialga</option>
+                <option value="13">ItzaMeLuigi</option>
+                <option value="14">Strangey</option>
             </select>
         </div>
         <div class="col-sm-3">         <!-- Livestreamer -->
