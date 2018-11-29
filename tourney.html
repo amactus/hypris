@@ -20,14 +20,16 @@ function changeSelect() {
         document.getElementById("round").innerHTML = "Finals";
     }
 }
+</script>
 
+<script> /* SELECT STREAM */
 function changeSelect() {
     if (document.getElementById("stream-selection").value == "1") {
         document.getElementById("stream").innerHTML = "amactus";
     } else if (document.getElementById("stream-selection").value == "2") {
-        document.getElementById("stream").innerHTML = "ItzaMeLuigi";
-    } else if (document.getElementById("stream-selection").value == "3") {
         document.getElementById("stream").innerHTML = "ShinyDialga";
+    } else if (document.getElementById("stream-selection").value == "3") {
+        document.getElementById("stream").innerHTML = "ItzaMeLuigi";
     } else if (document.getElementById("stream-selection").value == "4") {
         document.getElementById("stream").innerHTML = "Strangey";
     }
