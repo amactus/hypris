@@ -5,6 +5,38 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <body>
 
+
+
+<script>
+/*  DROPDOWN CONTROL */
+
+function changeSelect() {
+    if (document.getElementById("dropBox").value == "1") {
+        document.getElementById("divText").innerHTML = "...";
+    } else if (document.getElementById("dropBox").value == "2") {
+        document.getElementById("divText").innerHTML = "[HEADER] [DATE] [COUNT] ...";
+    } else if (document.getElementById("dropBox").value == "3") {
+        document.getElementById("divText").innerHTML = "[HEADER] ...";
+    } else if (document.getElementById("dropBox").value == "4") {
+        document.getElementById("divText").innerHTML = "NOTE [DATE] ...";
+    }
+}
+</script>
+
+<!--TEMPLATE-->
+<select type="text" id="dropBox" onchange="changeSelect()"> 
+    <option value="1">No Template</option>
+    <option value="2">Template 1</option>
+    <option value="3">Template 2</option>
+    <option value="4">Template 3</option>
+</select>
+
+<div id="divText">THIS TEXT SHOULD CHANGE</div>
+<!--GENERATE BUTTON DOES NOTHING RIGHT NOW-->
+<button onclick="">Generate</button>
+
+
+
 <div class="container">
     <div class="row">
         <div class="col-sm-3"></div>
