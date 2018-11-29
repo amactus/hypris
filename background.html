@@ -1,0 +1,39 @@
+<html>
+<title>Stratus Background</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.mySlides {display:none;}
+</style>
+<body>
+
+
+<div class="w3-content w3-section"> // Links to Stratus background images
+  <img class="mySlides" src="/hypris/stratus/CAl5Sux.png">
+  <img class="mySlides" src="/hypris/stratus/TgXdUKd.png">
+  <img class="mySlides" src="/hypris/stratus/ZU0ayGD.png">
+  <img class="mySlides" src="/hypris/stratus/f8jNtrL.png">
+  <img class="mySlides" src="/hypris/stratus/iDnMFl5.png">
+  <img class="mySlides" src="/hypris/stratus/ifFphlQ.png">
+  <img class="mySlides" src="/hypris/stratus/jL9cKG7.png">
+</div>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 10000); // Change image every 10 seconds
+}
+</script>
+
+</body>
+</html>
