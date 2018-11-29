@@ -20,6 +20,18 @@ function changeSelect() {
         document.getElementById("round").innerHTML = "Finals";
     }
 }
+
+function changeSelect() {
+    if (document.getElementById("stream-selection").value == "1") {
+        document.getElementById("stream").innerHTML = "amactus";
+    } else if (document.getElementById("stream-selection").value == "2") {
+        document.getElementById("stream").innerHTML = "ItzaMeLuigi";
+    } else if (document.getElementById("stream-selection").value == "3") {
+        document.getElementById("stream").innerHTML = "ShinyDialga";
+    } else if (document.getElementById("stream-selection").value == "4") {
+        document.getElementById("stream").innerHTML = "Strangey";
+    }
+}
 </script>
 
 </head>
@@ -33,6 +45,7 @@ function changeSelect() {
         <div class="col-sm-3"></div>   <!-- Select Team 1 -->
         <div class="col-sm-3">         <!-- Select Round -->
             <select type="text" id="round-selection" onchange="changeSelect()"> 
+                <option value="0">Select Round</option>
                 <option value="1">Qualifiers</option>
                 <option value="2">Invitationals</option>
                 <option value="3">Semi-Finals</option>
@@ -51,8 +64,20 @@ function changeSelect() {
         <div class="col-sm-3"></div>   <!-- Team 2 -->
     </div>
     <div class="row">
-        <div class="col-sm-3"></div>   <!-- Select Livestreamer -->
-        <div class="col-sm-3"></div>   <!-- Livestreamer -->
+        <div class="col-sm-3">         <!-- Select Livestreamer -->
+            <select type="text" id="stream-selection" onchange="changeSelect()"> 
+                <option value="0">Select Streamer</option>
+                <option value="1">amactus</option>
+                <option value="2">ShinyDialga</option>
+                <option value="3">ItzaMeLuigi</option>
+                <option value="4">Strangey</option>
+            </select>
+        </div>
+        <div class="col-sm-3">         <!-- Livestreamer -->
+            <h3>
+                <div id="stream"></div>
+            </h3>
+        </div>
     </div>
 </div>
 
