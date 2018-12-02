@@ -29,6 +29,26 @@ function changeSelect() {
     } else if (document.getElementById("stream-selection").value == "14") {
         document.getElementById("stream").innerHTML = "Strangey";
     }
+
+    if (document.getElementById("team1-selection").value == "21") {
+        document.getElementById("team1").innerHTML = "Team";
+    } else if (document.getElementById("team1-selection").value == "22") {
+        document.getElementById("team1").innerHTML = "Teeam";
+    } else if (document.getElementById("team1-selection").value == "23") {
+        document.getElementById("team1").innerHTML = "Teeeam";
+    } else if (document.getElementById("team1-selection").value == "24") {
+        document.getElementById("team1").innerHTML = "Teeeeam";
+    }
+
+    if (document.getElementById("team2-selection").value == "31") {
+        document.getElementById("team2").innerHTML = "Teaam";
+    } else if (document.getElementById("team2-selection").value == "32") {
+        document.getElementById("team2").innerHTML = "Teaam";
+    } else if (document.getElementById("team2-selection").value == "33") {
+        document.getElementById("team2").innerHTML = "Teaaam";
+    } else if (document.getElementById("team2-selection").value == "34") {
+        document.getElementById("team2").innerHTML = "Teaaaam";
+    }
 }
 </script>
 
@@ -40,7 +60,15 @@ function changeSelect() {
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-3"></div>   <!-- Select Team 1 -->
+        <div class="col-sm-3">         <!-- Select Team 1 -->
+            <select type="text" id="team1-selection" onchange="changeSelect()"> 
+                <option value="20">Select Team</option>
+                <option value="21">Team</option>
+                <option value="22">Teeam</option>
+                <option value="23">Teeeam</option>
+                <option value="24">Teeeeam</option>
+            </select>
+        </div>
         <div class="col-sm-3">         <!-- Select Round -->
             <select type="text" id="round-selection" onchange="changeSelect()"> 
                 <option value="0">Select Round</option>
@@ -50,16 +78,31 @@ function changeSelect() {
                 <option value="4">Finals</option>
             </select>
         </div>
-        <div class="col-sm-3"></div>   <!-- Select Team 2 -->
+        <div class="col-sm-3">         <!-- Select Team 2 -->
+            <select type="text" id="team2-selection" onchange="changeSelect()"> 
+                <option value="30">Select Team</option>
+                <option value="31">Team</option>
+                <option value="32">Teaam</option>
+                <option value="33">Teaaam</option>
+                <option value="34">Teaaaam</option>
+            </select></div>
     </div>
     <div class="row">
-        <div class="col-sm-3"></div>   <!-- Team 1 -->
+        <div class="col-sm-3">         <!-- Team 1 -->
+            <h3>
+                <div id="team1"></div>
+            </h3>
+        </div>
         <div class="col-sm-3">         <!-- Round -->
             <h3>
                 <div id="round"></div>
             </h3>
         </div>
-        <div class="col-sm-3"></div>   <!-- Team 2 -->
+        <div class="col-sm-3">         <!-- Team 2 -->
+            <h3>
+                <div id="team2"></div>
+            </h3>
+        </div>
     </div>
     <div class="row">
         <div class="col-sm-3">         <!-- Select Livestreamer -->
