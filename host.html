@@ -111,7 +111,7 @@ document.getElementsByTagName('input')[0].focus();
 	    <div class="col-sm-3">
             <p>-----------------</p>
             <p>Format: <div id="team"></div></p>
-            <p>Hosts: <div id="host-display"></div></p>
+            <p>Hosts: <div id="host"></div></p>
             <br>
             <p>Scenarios:</p>
         </div>
@@ -131,9 +131,9 @@ function set(el,text){
 /* setupUpdater will be called once, on page load.
  */
  
-function setupUpdater(){
- var input=document.getElementsByTagName('input')[0]
-   , orig=document.getElementById('time')
+function setupUpdater(id){
+ var input=document.getElementById(id + '-selection')
+   , orig=document.getElementById(id)
    , oldText=input.value
    , timeout=null;
  
@@ -156,7 +156,9 @@ function setupUpdater(){
  input.onkeydown=input.onkeyup=input.onclick=eventHandler;
 }
  
-setupUpdater();
+setupUpdater('time');
+setupUpdater('host');
+
 document.getElementsByTagName('input')[0].focus();
 </script>
 
