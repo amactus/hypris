@@ -10,44 +10,10 @@
 
 <script> /* SELECT ROUND */
 function changeSelect() {
-    if (document.getElementById("round-selection").value == "1") {
-        document.getElementById("round").innerHTML = "Qualifiers";
-    } else if (document.getElementById("round-selection").value == "2") {
-        document.getElementById("round").innerHTML = "Invitationals";
-    } else if (document.getElementById("round-selection").value == "3") {
-        document.getElementById("round").innerHTML = "Semi-Finals";
-    } else if (document.getElementById("round-selection").value == "4") {
-        document.getElementById("round").innerHTML = "Finals";
-    }
-
-    if (document.getElementById("stream-selection").value == "11") {
-        document.getElementById("stream").innerHTML = "amactus";
-    } else if (document.getElementById("stream-selection").value == "12") {
-        document.getElementById("stream").innerHTML = "ShinyDialga";
-    } else if (document.getElementById("stream-selection").value == "13") {
-        document.getElementById("stream").innerHTML = "ItzaMeLuigi";
-    } else if (document.getElementById("stream-selection").value == "14") {
-        document.getElementById("stream").innerHTML = "Strangey";
-    }
-
-    if (document.getElementById("team1-selection").value == "21") {
-        document.getElementById("team1").innerHTML = "Team";
-    } else if (document.getElementById("team1-selection").value == "22") {
-        document.getElementById("team1").innerHTML = "Teeam";
-    } else if (document.getElementById("team1-selection").value == "23") {
-        document.getElementById("team1").innerHTML = "Teeeam";
-    } else if (document.getElementById("team1-selection").value == "24") {
-        document.getElementById("team1").innerHTML = "Teeeeam";
-    }
-
-    if (document.getElementById("team2-selection").value == "31") {
-        document.getElementById("team2").innerHTML = "Teaam";
-    } else if (document.getElementById("team2-selection").value == "32") {
-        document.getElementById("team2").innerHTML = "Teaam";
-    } else if (document.getElementById("team2-selection").value == "33") {
-        document.getElementById("team2").innerHTML = "Teaaam";
-    } else if (document.getElementById("team2-selection").value == "34") {
-        document.getElementById("team2").innerHTML = "Teaaaam";
+    if (document.getElementById("team-selection").value == "1") {
+        document.getElementById("team").innerHTML = "Solo";
+    } else if (document.getElementById("team-selection").value == "2") {
+        document.getElementById("team").innerHTML = "To2";
     }
 }
 </script>
@@ -58,23 +24,78 @@ function changeSelect() {
 
 <body>
 
+<!--
+<fieldset>
+	<input type="text">
+</fieldset>
+
+<p id="charCount"></p>
+<p id="original"></p>
+<p id="reversed"></p>
+
+<script>
+/* A convenience function to reverse a string, and 
+ * one to set the content of an element.
+ */
+ 
+function reverse(s){return s.split('').reverse().join('')}
+ 
+function set(el,text){
+ while(el.firstChild)el.removeChild(el.firstChild);
+ el.appendChild(document.createTextNode(text))}
+ 
+/* setupUpdater will be called once, on page load.
+ */
+ 
+function setupUpdater(){
+ var input=document.getElementsByTagName('input')[0]
+   , orig=document.getElementById('original')
+   , oldText=input.value
+   , timeout=null;
+ 
+/* handleChange is called 50ms after the user stops 
+   typing. */
+ function handleChange(){
+  var newText=input.value;
+  if (newText==oldText) return; else oldText=newText;
+  set(orig, newText);
+ }
+ 
+/* eventHandler is called on keyboard and mouse events.
+   If there is a pending timeout, it cancels it.
+   It sets a timeout to call handleChange in 50ms. */
+ function eventHandler(){
+  if(timeout) clearTimeout(timeout);
+  timeout=setTimeout(handleChange, 50);
+ }
+ 
+ input.onkeydown=input.onkeyup=input.onclick=eventHandler;
+}
+ 
+setupUpdater();
+document.getElementsByTagName('input')[0].focus();
+</script>
+-->
+
 <div class="container">
 	<div class="row"> <!-- Select Heading -->
 	    <div class="col-sm-3"> <!-- Solo/Teams -->
             <select type="text" id="team-selection" onchange="changeSelect()"> 
-                <option value="0">Solo/To2</option>
+                <option value="0">Select Solo/To2</option>
                 <option value="1">Solo</option>
                 <option value="2">To2</option>
             </select>
         </div>
 	    <div class="col-sm-3"> <!-- Time -->
- 			<form>
-  				<input type="text" id="time-selection">
-			</form> 
+ 			<p>Input Time:</p>
+ 			<fieldset>
+				<input type="text" id="time-selection">
+			</fieldset>
         </div>
 	</div>
 	<div class="row"> <!-- Select Body -->
 	    <div class="col-sm-3"> <!-- Hosts -->
+	    	<p>Input Hosts</>
  			<form>
   				<input type="text" id="host-selection">
 			</form> 
@@ -82,7 +103,7 @@ function changeSelect() {
 	</div>
 	<div class="row"> <!-- Heading -->
 	    <div class="col-sm-3">
-            <h3>Stratus UHC</h3>
+            <p>Stratus UHC</p>
             <div id="time"></div><p> EST</p>
         </div>
 	</div>
@@ -90,11 +111,54 @@ function changeSelect() {
 	    <div class="col-sm-3">
             <p>-----------------</p>
             <p>Format: <div id="team"></div></p>
-            <p>Hosts: <div id="host"></div></p>
+            <p>Hosts: <div id="host-display"></div></p>
             <br>
             <p>Scenarios:</p>
         </div>
 	</div>
+
+<script>
+/* A convenience function to reverse a string, and 
+ * one to set the content of an element.
+ */
+ 
+function reverse(s){return s.split('').reverse().join('')}
+ 
+function set(el,text){
+ while(el.firstChild)el.removeChild(el.firstChild);
+ el.appendChild(document.createTextNode(text))}
+ 
+/* setupUpdater will be called once, on page load.
+ */
+ 
+function setupUpdater(){
+ var input=document.getElementsByTagName('input')[0]
+   , orig=document.getElementById('time')
+   , oldText=input.value
+   , timeout=null;
+ 
+/* handleChange is called 50ms after the user stops 
+   typing. */
+ function handleChange(){
+  var newText=input.value;
+  if (newText==oldText) return; else oldText=newText;
+  set(orig, newText);
+ }
+ 
+/* eventHandler is called on keyboard and mouse events.
+   If there is a pending timeout, it cancels it.
+   It sets a timeout to call handleChange in 50ms. */
+ function eventHandler(){
+  if(timeout) clearTimeout(timeout);
+  timeout=setTimeout(handleChange, 50);
+ }
+ 
+ input.onkeydown=input.onkeyup=input.onclick=eventHandler;
+}
+ 
+setupUpdater();
+document.getElementsByTagName('input')[0].focus();
+</script>
 
 </body>
 </html>
